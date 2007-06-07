@@ -1,15 +1,16 @@
 Name:           kardsgt
-Version:        0.6.0
+Version:        0.6.2
 Release:        %mkrel 1
 Epoch:          0
 Summary:        Card game suite
 License:        GPL
 Group:          Games/Cards
 URL:            http://kardsgt.nongnu.org/
+# Really at http://john.lutheran.com/projects/kardsgt-0.6.2-1jms.src.rpm
+# Upstream really needs to make an official release
 Source0:        http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{version}.tar.gz
-Source1:        http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{version}.tar.gz.sig
+#Source1:       http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{version}.tar.gz.sig
 Source2:        kardsgt.desktop
-Patch0:         kardsgt-0.6.0-no-chown.patch
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 BuildRequires:  desktop-file-utils
@@ -32,7 +33,6 @@ The specific games are:
 
 %prep
 %setup -q
-%patch0 -p1
 (cd kardsgt-%{version}-src && %{_bindir}/qmake && %{__make} distclean)
 
 %build
@@ -41,8 +41,12 @@ export QTDIR=%{_prefix}/lib/qt3
 
 %install
 %{__rm} -rf %{buildroot}
-%{makeinstall}
-%{__rm} -r %{buildroot}%{_docdir}
+%{__mkdir_p} %{buildroot}%{_bindir}
+%{__install} -p -m 0755 kardsgt-%{version}-src/kardsgt %{buildroot}%{_bindir}
+%{__mkdir_p} %{buildroot}%{_mandir}/man6
+%{__install} -p -m 0644 kardsgt-%{version}-src/src/doc/kardsgt.6 %{buildroot}%{_mandir}/man6
+%{__mkdir_p} %{buildroot}%{_iconsdir}
+%{__install} -p -m 0644 kardsgt-%{version}-src/src/images/kardsgticon.png %{buildroot}%{_iconsdir}/kardsgt.png
 
 %{__mkdir_p} %{buildroot}%{_menudir}
 %{__cat} > %{buildroot}%{_menudir}/kardsgt << EOF
