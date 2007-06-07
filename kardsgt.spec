@@ -1,15 +1,15 @@
 Name:           kardsgt
-Version:        0.5.1
+Version:        0.6.0
 Release:        %mkrel 1
 Epoch:          0
 Summary:        Card game suite
 License:        GPL
 Group:          Games/Cards
-URL:            http://john.lutheran.com/
-#URL:            http://kardsgt.nongnu.org/
-# http://john.lutheran.com/projects/kardsgt-0.5.1-1jms.src.rpm
+URL:            http://kardsgt.nongnu.org/
 Source0:        http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{version}.tar.gz
-Source1:        kardsgt.desktop
+Source1:        http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{version}.tar.gz.sig
+Source2:        kardsgt.desktop
+Patch0:         kardsgt-0.6.0-no-chown.patch
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 BuildRequires:  desktop-file-utils
@@ -32,6 +32,7 @@ The specific games are:
 
 %prep
 %setup -q
+%patch0 -p1
 (cd kardsgt-%{version}-src && %{_bindir}/qmake && %{__make} distclean)
 
 %build
@@ -69,7 +70,7 @@ EOF
 %{_bindir}/desktop-file-install --vendor ""                         \
         --dir %{buildroot}%{_datadir}/applications                  \
         --add-category X-MandrivaLinux-MoreApplications-Games-Cards \
-        %{SOURCE1}
+        %{SOURCE2}
 
 %{__mkdir_p} %{buildroot}%{_datadir}/pixmaps
 %{_bindir}/convert -resize 32x32 kardsgt-%{version}-src/src/images/kardsgt.png %{buildroot}%{_datadir}/pixmaps/kardsgt.png
@@ -107,5 +108,3 @@ EOF
 %{_iconsdir}/kardsgt.png
 %{_liconsdir}/kardsgt.png
 %{_miconsdir}/kardsgt.png
-
-
