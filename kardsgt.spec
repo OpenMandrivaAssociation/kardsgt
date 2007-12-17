@@ -14,7 +14,6 @@ Requires(postun): desktop-file-utils
 BuildRequires:  desktop-file-utils
 BuildRequires:  ImageMagick
 BuildRequires:  qt3-devel
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{epoch}:%{release}-buildroot
 
 %description
 KardsGT is a card game program that has many of your favorite card 
