@@ -31,9 +31,6 @@ The specific games are:
 
 %prep
 %setup -q
-%if 0
-(cd src-%{version} && %{_bindir}/qmake && %{__make} distclean)
-%endif
 
 %build
 export QTDIR=%{_prefix}/lib/qt3
@@ -45,34 +42,9 @@ export QTDIR=%{_prefix}/lib/qt3
 #%{__rm} -r %{buildroot}%{_datadir}/doc/kardsgt-%{version}/
 %{__rm} -r %{buildroot}%{_iconsdir}/
 
-%if 0
-%{__mkdir_p} %{buildroot}%{_menudir}
-%{__cat} > %{buildroot}%{_menudir}/kardsgt << EOF
-?package(kardsgt):\\
-command="%{_bindir}/kardsgt -u ~" \\
-icon="kardsgt.png" \\
-needs="X11" \\
-section="More Applications/Games/Cards" \\
-title="KardsGT" \\
-longtitle="Full card game suite" \\
-mimetypes="text/plain" \\
-accept_url="false" \\
-multiple_files="false" \\
-xdg="true"
-EOF
-
-%{__mkdir_p} %{buildroot}%{_miconsdir}
-%{_bindir}/convert -resize 16x16 src-%{version}/src/images/kardsgt.png %{buildroot}%{_miconsdir}/kardsgt.png
-%{__mkdir_p} %{buildroot}%{_iconsdir}
-%{_bindir}/convert -resize 32x32 src-%{version}/src/images/kardsgt.png %{buildroot}%{_iconsdir}/kardsgt.png
-%{__mkdir_p} %{buildroot}%{_liconsdir}
-%{_bindir}/convert -resize 48x48 src-%{version}/src/images/kardsgt.png %{buildroot}%{_liconsdir}/kardsgt.png
-%endif
-
 %{__mkdir_p} %{buildroot}%{_datadir}/applications
 %{_bindir}/desktop-file-install --vendor ""                         \
         --dir %{buildroot}%{_datadir}/applications                  \
-        --add-category X-MandrivaLinux-MoreApplications-Games-Cards \
         %{SOURCE2}
 
 %{__mkdir_p} %{buildroot}%{_datadir}/pixmaps
@@ -108,9 +80,3 @@ EOF
 %{_datadir}/kardsgt
 %{_datadir}/pixmaps/kardsgt.png
 %{_mandir}/man6/kardsgt.6*
-%if 0
-%{_menudir}/kardsgt
-%{_iconsdir}/kardsgt.png
-%{_liconsdir}/kardsgt.png
-%{_miconsdir}/kardsgt.png
-%endif
