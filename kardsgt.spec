@@ -1,5 +1,5 @@
 Name:           kardsgt
-Version:        0.6.3
+Version:        0.6.4
 Release:        %mkrel 1
 Epoch:          0
 Summary:        Card game suite
@@ -42,7 +42,7 @@ export QTDIR=%{_prefix}/lib/qt3
 %install
 %{__rm} -rf %{buildroot}
 %{makeinstall_std}
-%{__rm} -r %{buildroot}%{_datadir}/doc/kardsgt-%{version}/
+#%{__rm} -r %{buildroot}%{_datadir}/doc/kardsgt-%{version}/
 %{__rm} -r %{buildroot}%{_iconsdir}/
 
 %if 0
@@ -105,7 +105,7 @@ EOF
 %{_datadir}/icons/hicolor/16x16/apps/kardsgt.png
 %{_datadir}/icons/hicolor/24x24/apps/kardsgt.png
 %{_datadir}/icons/hicolor/32x32/apps/kardsgt.png
-%{_datadir}/kardsgt-%{version}
+%{_datadir}/kardsgt
 %{_datadir}/pixmaps/kardsgt.png
 %{_mandir}/man6/kardsgt.6*
 %if 0
