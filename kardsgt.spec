@@ -3,7 +3,7 @@ Version:        0.6.4
 Release:        %mkrel 1
 Epoch:          0
 Summary:        Card game suite
-License:        GPL
+License:        GPLv2+
 Group:          Games/Cards
 URL:            http://kardsgt.nongnu.org/
 Source0:        http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{version}.tar.gz
