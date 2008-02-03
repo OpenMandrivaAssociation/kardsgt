@@ -1,5 +1,5 @@
 Name:           kardsgt
-Version:        0.6.4
+Version:        0.6.5
 Release:        %mkrel 1
 Epoch:          0
 Summary:        Card game suite
@@ -7,14 +7,14 @@ License:        GPLv2+
 Group:          Games/Cards
 URL:            http://kardsgt.nongnu.org/
 Source0:        http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{version}.tar.gz
-Source1:       http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{version}.tar.gz.sig
+Source1:        http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{version}.tar.gz.sig
 Source2:        kardsgt.desktop
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 BuildRequires:  desktop-file-utils
 BuildRequires:  ImageMagick
 BuildRequires:  qt3-devel
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{epoch}:%{release}-buildroot
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 KardsGT is a card game program that has many of your favorite card 
@@ -34,14 +34,13 @@ The specific games are:
 %setup -q
 
 %build
-export QTDIR=%{_prefix}/lib/qt3
+export QTDIR=%{qt3dir}
 %{make}
 
 %install
 %{__rm} -rf %{buildroot}
 %{makeinstall_std}
-#%{__rm} -r %{buildroot}%{_datadir}/doc/kardsgt-%{version}/
-%{__rm} -r %{buildroot}%{_iconsdir}/
+%{__rm} -r %{buildroot}%{_iconsdir}
 
 %{__mkdir_p} %{buildroot}%{_datadir}/applications
 %{_bindir}/desktop-file-install --vendor ""                         \
