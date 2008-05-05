@@ -14,6 +14,7 @@ Requires(postun): desktop-file-utils
 BuildRequires:  desktop-file-utils
 BuildRequires:  ImageMagick
 BuildRequires:  qt3-devel
+BuildConflicts: qt4-devel
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
