@@ -60,15 +60,19 @@ export QTDIR=%{qt3dir}
 %clean
 %{__rm} -rf %{buildroot}
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
 %{update_desktop_database}
 %update_icon_cache hicolor
+%endif
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
 %{clean_desktop_database}
 %clean_icon_cache hicolor
+%endif
 
 %files
 %defattr(0644,root,root,0755)
