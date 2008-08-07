@@ -1,6 +1,6 @@
 Name:           kardsgt
 Version:        0.6.5
-Release:        %mkrel 2
+Release:        %mkrel 3
 Epoch:          0
 Summary:        Card game suite
 License:        GPLv2+
