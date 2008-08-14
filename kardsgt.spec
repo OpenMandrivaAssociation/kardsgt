@@ -1,9 +1,9 @@
 Name:           kardsgt
-Version:        0.6.5
-Release:        %mkrel 3
+Version:        0.7.0
+Release:        %mkrel 1
 Epoch:          0
 Summary:        Card game suite
-License:        GPLv2+
+License:        GPLv3+
 Group:          Games/Cards
 URL:            http://kardsgt.nongnu.org/
 Source0:        http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{version}.tar.gz
@@ -13,7 +13,6 @@ Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 BuildRequires:  desktop-file-utils
 BuildRequires:  ImageMagick
-BuildRequires:  qt3-devel
 BuildConflicts: qt4-devel
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
@@ -35,7 +34,7 @@ The specific games are:
 %setup -q
 
 %build
-export QTDIR=%{qt3dir}
+export QTDIR=%{qt4dir}
 %{make}
 
 %install
