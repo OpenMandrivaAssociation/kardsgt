@@ -1,5 +1,5 @@
 Name:           kardsgt
-Version:        0.7.0
+Version:        0.7.1
 Release:        %mkrel 1
 Epoch:          0
 Summary:        Card game suite
@@ -9,7 +9,6 @@ URL:            http://kardsgt.nongnu.org/
 Source0:        http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{version}.tar.gz
 Source1:        http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{version}.tar.gz.sig
 Source2:        kardsgt.desktop
-Patch0:		kardsgt-0.7.0-gcc43.patch
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 BuildRequires:  desktop-file-utils
@@ -33,7 +32,6 @@ The specific games are:
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 %qmake_qt4
