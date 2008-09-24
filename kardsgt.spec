@@ -1,6 +1,6 @@
 Name:           kardsgt
 Version:        0.7.1
-Release:        %mkrel 1
+Release:        %mkrel 2
 Epoch:          0
 Summary:        Card game suite
 License:        GPLv3+
@@ -22,13 +22,6 @@ games. Each game comes with an exhaustive manual on how to play. In
 addition to the many wonderful games, we also have amazing characters 
 to play against. Each character has their own history and sense of 
 play, giving you a fun challenge as you spend your time.
-
-The specific games are:
-  - cribbage
-  - euchre
-  - hearts
-  - spades
-  - war
 
 %prep
 %setup -q
