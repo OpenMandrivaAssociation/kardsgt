@@ -12,7 +12,7 @@ Source2:        kardsgt.desktop
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 BuildRequires:  desktop-file-utils
-BuildRequires:  ImageMagick
+BuildRequires:  imagemagick
 BuildRequires: qt4-devel
 Requires:	qt4-assistant
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
