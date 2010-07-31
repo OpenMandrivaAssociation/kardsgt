@@ -1,6 +1,6 @@
 Name:           kardsgt
 Version:        0.7.1
-Release:        %mkrel 3
+Release:        %mkrel 4
 Epoch:          0
 Summary:        Card game suite
 License:        GPLv3+
@@ -13,8 +13,9 @@ Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 BuildRequires:  desktop-file-utils
 BuildRequires:  imagemagick
-BuildRequires: qt4-devel
-Requires:	qt4-assistant
+BuildRequires:	qt4-devel
+BuildRequires:	qt-assistant-adp-devel
+Requires:	qt-assistant-adp
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
