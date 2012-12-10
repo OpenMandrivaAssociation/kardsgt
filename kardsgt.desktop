@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=KardsGT
+Comment=Full card game suite
+Exec=kardsgt
+GenericName=Card game suite
+Icon=kardsgt
+Type=Application
+Terminal=false
+X-KDE-StartupNotify=true
+X-DCOP-ServiceType=Multi
+Categories=Game;CardGame;Qt;
