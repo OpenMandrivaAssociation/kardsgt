@@ -5,7 +5,7 @@ Epoch:          0
 Summary:        Card game suite
 License:        GPLv3+
 Group:          Games/Cards
-URL:            http://kardsgt.nongnu.org/
+URL:            https://kardsgt.nongnu.org/
 Source0:        http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{version}.tar.gz
 Source1:        http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{version}.tar.gz.sig
 Source2:        kardsgt.desktop
