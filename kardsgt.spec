@@ -11,6 +11,7 @@ Source1:        http://download.savannah.gnu.org/releases/kardsgt/kardsgt-%{vers
 Source2:        kardsgt.desktop
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
+BuildRequires:	make
 BuildRequires:  desktop-file-utils
 BuildRequires:  imagemagick
 BuildRequires:	qt4-devel
